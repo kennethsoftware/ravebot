@@ -3,7 +3,7 @@ ravebot.controller('PlayerCtrl', ['$scope', '$http', '$state', '$location', '$co
   $scope.currentSong = ''
   $scope.songMessage = ''
 
-  $scope.songPlaying = false
+  $scope.song = false
 
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
@@ -21,8 +21,8 @@ ravebot.controller('PlayerCtrl', ['$scope', '$http', '$state', '$location', '$co
   }
 
   $scope.songPlaying = function(response) {
-    if(response.url == null) {
-      $scope.songPlaying = false
+    if(response == null) {
+      $scope.song = false
       setTimeout(function () {
       $state.reload()
       }, 5000);

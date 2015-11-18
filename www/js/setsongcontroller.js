@@ -13,7 +13,6 @@ ravebot.controller('SetSongCtrl', ['$scope', '$http', '$state', '$location', '$c
     }).then(function(tracks) {
       $scope.searchResults = tracks;
     });
-    console.log($scope.searchResults)
   };
 
   $scope.sendSong = function(track, message, name) {
