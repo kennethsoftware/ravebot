@@ -22,6 +22,7 @@ module.exports = function(config) {
       'www/lib/angular-sanitize/angular-sanitize.js',
       'www/lib/angular-ui-router/release/angular-ui-router.js',
       'www/lib/ionic/js/ionic.bundle.js',
+      'https://connect.soundcloud.com/sdk/sdk-3.0.0.js',
       'www/js/app.js',
       'www/js/*.js',
       'www/test/*Spec.js',
