@@ -1,6 +1,12 @@
 <ion-content ng-controller="PlayerCtrl" ng-init="grabSong()">
   <div id="pushdown">
     <div ng-hide="song">PLEASE SEND THE RAVEBOT NEW TUNES</div>
+    <div style="text-align:center">
+      <h1>{{ partyName }}'s RaveBot Playlist</h1>
+      <div style = 'display:inline-block'>
+        <h3>{{ songUser }}: {{ songMessage }}</h3>
+      </div>
+    </div>
     <iframe id="sc-widget" ng-src="{{trustSrc(currentSong)}}" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
   </div>
 </ion-content>
