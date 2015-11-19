@@ -3,34 +3,33 @@ ravebot.controller('PlayerCtrl', ['$scope', '$http', '$state', '$location', '$co
   $scope.currentSong = ''
   $scope.songMessage = ''
 
-  $scope.song = false
+  $scope.song = true
 
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
   };
 
   $scope.grabSong = function() {
-    $http.get('https://stormy-bastion-7671.herokuapp.com/songs/random/' + $scope.partyName, 'GET').success(function(response) {
-      $scope.currentSong = 'https://w.soundcloud.com/player/?url=' + response.url + '&auto_play=true'
-      $scope.partyName = response.party_name
-      $scope.songUser = response.name
-      $scope.songMessage = response.message
-      $scope.songPlaying(response)
-      setTimeout(function () {
-        $state.reload()
-      }, response.duration);
-    });
-  }
+    $http.get('https://stormy-bastion-7671.herokuapp.com/songs/random/' + $scope.partyName, 'GET').then(
+      function success(response) {
+        $scope.currentSong = 'https://w.soundcloud.com/player/?url=' + response.url + '&auto_play=true'
+        $scope.partyName = response.party_name
+        $scope.songUser = response.name
+        $scope.songMessage = response.message
+        setTimeout(function () {
+          $state.reload()
+        }, response.duration);
+      },
+      function error() {
+        $scope.songPlaying()
+      });
+  };
 
-  $scope.songPlaying = function(response) {
-    if(response == null) {
-      $scope.song = false
-      setTimeout(function () {
+  $scope.songPlaying = function() {
+    $scope.song = false
+    setTimeout(function () {
       $state.reload()
-      }, 5000);
-    } else {
-      $scope.songPlaying = true
-    }
-  }
+    }, 5000);
+  };
 
 }]);
