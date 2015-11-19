@@ -3,7 +3,7 @@
     <div ng-hide="song">PLEASE SEND THE RAVEBOT NEW TUNES</div>
     <div style="text-align:center">
       <h1>{{ partyName }}'s RaveBot Playlist</h1>
-      <div style = 'display:inline-block'>
+      <div style = 'display:inline-block' ng-show="song">
         <h3>{{ songUser }}: {{ songMessage }}</h3>
       </div>
     </div>
