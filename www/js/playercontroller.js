@@ -12,13 +12,13 @@ ravebot.controller('PlayerCtrl', ['$scope', '$http', '$state', '$location', '$co
   $scope.grabSong = function() {
     $http.get('https://stormy-bastion-7671.herokuapp.com/songs/random/' + $scope.partyName, 'GET').then(
       function success(response) {
-        $scope.currentSong = 'https://w.soundcloud.com/player/?url=' + response.url + '&auto_play=true'
-        $scope.partyName = response.party_name
-        $scope.songUser = response.name
-        $scope.songMessage = response.message
+        $scope.currentSong = 'https://w.soundcloud.com/player/?url=' + response.data.url + '&auto_play=true'
+        $scope.partyName = response.data.party_name
+        $scope.songUser = response.data.name
+        $scope.songMessage = response.data.message
         setTimeout(function () {
           $state.reload()
-        }, response.duration);
+        }, response.data.duration);
       },
       function error() {
         $scope.songPlaying()

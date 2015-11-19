@@ -10,7 +10,13 @@
       <input type="text" ng-model="joinparty" placeholder="Enter a party name">
     </label>
     <button class="button button-block button-positive" ng-click="joinParty(joinparty)" id="joinParty">
-      Join A Party
+      Join An Existing Party
+    </button>
+    <label class="item item-input" id="joinparty">
+      <input type="text" ng-model="sendsongto" placeholder="Enter a party name">
+    </label>
+    <button class="button button-block button-positive" ng-click="sendSong(sendsongto)" id="joinParty">
+      Send a song
     </button>
   </div>
 </ion-content>
